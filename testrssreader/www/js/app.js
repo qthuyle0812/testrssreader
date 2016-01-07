@@ -30,11 +30,15 @@ app.controller('simpleFeedCtrl', function ($scope, $http) {
   var url= "http://vnexpress.net/rss/tin-moi-nhat.rss";
   var google_converter="https://ajax.googleapis.com/ajax/services/feed/load?v=2.0&num=10&callback=JSON_CALLBACK&q=";
   
-  var request = $http.jsonp(google_converter+ encodeURIComponent(url));
-  request.success(function(res){
+  $http.jsonp(google_converter+ encodeURIComponent(url))
+    .success(function(res){
     console.log(res);
+    
     $scope.posts = res.responseData.feed.entries ;
    
   });
-    
+  
+   $scope.openLink = function(url) {
+      window.open(url, '_blank');
+    }  
 });
