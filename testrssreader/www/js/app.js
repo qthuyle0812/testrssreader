@@ -39,6 +39,6 @@ app.controller('simpleFeedCtrl', function ($scope, $http) {
   });
   
    $scope.openLink = function(url) {
-      window.open(url, '_blank');
+      window.open(url, '_system');
     }  
 });
